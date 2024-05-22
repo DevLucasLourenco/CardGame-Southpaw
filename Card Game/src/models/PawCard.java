@@ -61,6 +61,7 @@ abstract class PawCard implements Card{
     }
     
     public void usePower(){
+        
         this.powerUsage.Use();
     }
 
