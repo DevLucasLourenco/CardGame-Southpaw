@@ -1,5 +1,5 @@
 
-abstract class CARD{
+public abstract class Card{
 
     private User User;
     private String name;
@@ -9,43 +9,52 @@ abstract class CARD{
     private int life;
     private int elixirCost;
     private int rarity; // 1 to 5
-    public PowerEnviroment powerEnviroment;
+    public Power powerEnviroment;
     private boolean onTheField = false;
 
 
-    public CARD(User user){
+    public Card(User user, String name){
         this.User = user;
+        setName(name);
     }
 
-    public int attackEnemy(CARD enemyCard){
-        if (isOnTheField()){ // fazer o mesmo para todos os metodos
+    public int attackEnemy(Card enemyCard){
+        if (isOnTheField()){
             enemyCard.setLife(enemyCard.getLife() - this.attack);
             return enemyCard.getLife();
         }
         return 0;
     }
 
-    public int receiveDamage(CARD enemyCard){
-        int damageReceived = getLife() - enemyCard.getAttack();
-        setLife(damageReceived);
-        
-        return damageReceived;
+    public int receiveDamage(Card enemyCard){
+        if (isOnTheField()){
+            int newLifeState = getLife() - enemyCard.getAttack();
+            setLife(newLifeState);
+            this.dyingState();
+            
+            return newLifeState;
+        }
+        return 0;
     }
     
-    public void dyingState(){
-        if (getLife() <= 0) {
-            System.out.println("Died");
-            setOnTheField(false);
+    private void dyingState(){
+        if (isOnTheField()){
+            if (getLife() <= 0) {
+                System.out.println("Died");
+                setOnTheField(false);
+            }
         }
     }
     
     public void positionateCard(){
-        if (!(getUser().getElixir() < getElixirCost())){
-            getUser().setElixir(getElixirCost() - getElixirCost());
-            setOnTheField(true);
-            System.out.println(String.format("%s Positionated", getName()));
+        if (!(isOnTheField())){
+            if (!(getUser().getElixir() < getElixirCost())){
+                getUser().setElixir(getElixirCost() - getElixirCost());
+                setOnTheField(true);
+                System.out.println(String.format("%s Positionated", getName()));
+            }
+            System.out.println(getUser().getName()+" doesn't have enought Elixir to positionate "+ getName());
         }
-        System.out.println(getUser().getName()+" doesn't have enought Elixir to positionate "+ getName());
     }
     
     public void usePower(){
@@ -58,9 +67,9 @@ abstract class CARD{
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name){
         this.name = name;
-    }
+    };
 
     public int getAttack() {
         return attack;
