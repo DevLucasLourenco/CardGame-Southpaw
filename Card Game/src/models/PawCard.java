@@ -1,6 +1,6 @@
 package models;
 
-import models.PowerEnviroment.Power;
+import models.PowerEnviroment.PowerSkill;
 
 public abstract class PawCard implements Card{
 
@@ -12,7 +12,7 @@ public abstract class PawCard implements Card{
     private int life;
     private int elixirCost;
     private int rarity; // 1 to 5
-    public Power powerUsage;
+    public PowerSkill powerUsage;
     private boolean onTheField = false;
 
 

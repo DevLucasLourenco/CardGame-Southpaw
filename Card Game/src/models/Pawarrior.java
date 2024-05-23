@@ -26,4 +26,11 @@ public class Pawarrior extends PawCard {
         System.out.println(getUser().getName());
         System.out.println("\n");
     }
+
+    @Override
+    public void usePower() {
+        
+    }
+
+    
 }

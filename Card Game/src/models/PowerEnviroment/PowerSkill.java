@@ -3,12 +3,12 @@ package models.PowerEnviroment;
 import models.Card;
 import models.User;
 
-public abstract class Power {
+public abstract class PowerSkill {
     private int elixirCost;
     private Card card;
     private User user;
 
-    public Power(User user, Card card, int elixirCost){
+    public PowerSkill(User user, Card card, int elixirCost){
         this.elixirCost = elixirCost;
         this.card = card;
         this.user = user;
