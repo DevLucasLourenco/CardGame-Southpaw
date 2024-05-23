@@ -1,18 +1,23 @@
 package models.PowerEnviroment;
 
 import models.Card;
+import models.User;
 
-public class Power {
+public abstract class Power {
+    private int elixirCost;
+    private Card card;
+    private User user;
 
-    public Power(Card card){
-
+    public Power(User user, Card card, int elixirCost){
+        this.elixirCost = elixirCost;
+        this.card = card;
+        this.user = user;
     }
-    
-    private void PowerRule(){
-        
-    }
+
+    abstract void powerRule();
+
     
     public void Use(){
-        PowerRule();
+        powerRule();
     }
 } 
