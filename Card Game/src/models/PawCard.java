@@ -2,7 +2,7 @@ package models;
 
 import models.PowerEnviroment.Power;
 
-abstract class PawCard implements Card{
+public abstract class PawCard implements Card{
 
     private User User;
     private String name;
@@ -34,7 +34,6 @@ abstract class PawCard implements Card{
             int newLifeState = getLife() - enemyCard.getAttack();
             setLife(newLifeState);
             this.dyingState();
-            
             return newLifeState;
         }
         return 0;
@@ -55,13 +54,14 @@ abstract class PawCard implements Card{
                 getUser().setElixir(getElixirCost() - getElixirCost());
                 setOnTheField(true);
                 System.out.println(String.format("%s Positionated", getName()));
+                
+            } else{
+                System.out.println(getUser().getName()+" doesn't have enought Elixir to positionate "+ getName());
             }
-            System.out.println(getUser().getName()+" doesn't have enought Elixir to positionate "+ getName());
         }
     }
     
     public void usePower(){
-        
         this.powerUsage.Use();
     }
 
