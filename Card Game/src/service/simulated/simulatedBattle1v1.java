@@ -1,11 +1,12 @@
-package service;
+package service.simulated;
 
 import models.PawCard;
 import models.User;
 import models.characters.*;
 
-public class battle1v1 {
+public class simulatedBattle1v1 {
     public static void main(String[] args) {
+
         User user1 = new User("Lucas");
         User user2 = new User("Fulano");
 
