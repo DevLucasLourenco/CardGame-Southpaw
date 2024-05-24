@@ -11,6 +11,6 @@ public class doppelgangers extends PowerSkill{
 
     @Override
     void powerRule() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // duplicar;
     }
 }

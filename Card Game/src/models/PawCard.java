@@ -120,8 +120,8 @@ public abstract class PawCard implements Card{
         return life;
     }
 
-    public void setLife(int life) {
-        this.life = life;
+    public void setLife(int d) {
+        this.life = d;
     }
 
     @Override
