@@ -1,4 +1,4 @@
-package models.PowerEnviroment;
+package models.powerEnviroment;
 
 import models.PawCard;
 import models.User;

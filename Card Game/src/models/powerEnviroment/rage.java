@@ -1,11 +1,11 @@
-package models.PowerEnviroment;
+package models.powerEnviroment;
 
 import models.PawCard;
 import models.User;
 
-public class rageFromPawCard extends PowerSkill{
+public class rage extends PowerSkill{
 
-    public rageFromPawCard(User user, PawCard card, int elixirCost) {
+    public rage(User user, PawCard card, int elixirCost) {
         super(user, card, elixirCost);
     }
 

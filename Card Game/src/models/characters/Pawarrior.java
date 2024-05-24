@@ -1,8 +1,8 @@
 package models.characters;
 
 import models.PawCard;
-import models.PowerEnviroment.*;
 import models.User;
+import models.powerEnviroment.*;
 
 
 public class Pawarrior extends PawCard {
@@ -22,7 +22,7 @@ public class Pawarrior extends PawCard {
 
     @Override
     public void usePower() {
-        PowerSkill power = new rageFromPawCard(getUser(), this, getElixirCost());
+        PowerSkill power = new rage(getUser(), this, getElixirCost());
         power.Use();
     }
 }
