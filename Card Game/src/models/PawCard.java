@@ -1,6 +1,5 @@
 package models;
 
-import models.PowerEnviroment.PowerSkill;
 
 public abstract class PawCard implements Card{
 
@@ -12,7 +11,6 @@ public abstract class PawCard implements Card{
     private int life;
     private int elixirCost;
     private int rarity; // 1 to 5
-    public PowerSkill powerUsage;
     private boolean onTheField = false;
 
 
@@ -60,10 +58,18 @@ public abstract class PawCard implements Card{
             }
         }
     }
-    
-    public void usePower(){
-        this.powerUsage.Use();
+
+    @Override
+    public void showCardDetails() {
+        System.out.println(String.format("=== %s - %s ===", User.getName(), getName()));
+        System.out.println(getLife());
+        System.out.println(getAttack());
+        System.out.println(getElixirCost());
+        System.out.println(getUser().getName());
+        System.out.println("\n");
     }
+    
+    abstract public void usePower();
 
 
     // Getters & Setters
