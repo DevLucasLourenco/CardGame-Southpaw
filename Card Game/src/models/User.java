@@ -1,8 +1,12 @@
 package models;
 
+import java.util.List;
+
 public class User{
     private String name;
     private int elixir = 10;
+    public List<Card> PawUnderControl;
+    
 
     public User(String name){
         this.name = name;
