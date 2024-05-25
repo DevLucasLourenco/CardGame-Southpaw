@@ -27,6 +27,10 @@ public class simulatedBattle1v1 {
         
         Party party = new Party();
         party.insertUsers(user1, user2);
+        System.out.println(party.getPartyPerUser());
+        
+
+
         
 
         // pawarior2.showCardDetails();
