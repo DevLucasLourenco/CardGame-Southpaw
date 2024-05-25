@@ -11,19 +11,20 @@ public class simulatedBattle1v1 {
         User user2 = new User("Fulano");
 
 
-        PawCard pawwarrior = new Pawarrior(user1);
-        pawwarrior.positionateCard();
-        pawwarrior.showCardDetails();
+        PawCard pawarior = new Pawarrior(user1);
+        pawarior.positionateCard();
+        pawarior.showCardDetails();
 
-        PawCard pawwarrior2 = new Pawarrior(user2);
-        pawwarrior2.positionateCard();
-        pawwarrior2.showCardDetails();
+        PawCard pawarior2 = new Pawarrior(user2);
+        pawarior2.positionateCard();
+        pawarior2.showCardDetails();
         
-        pawwarrior.usePower();
-        pawwarrior.showCardDetails();
+        pawarior.usePower();
+        pawarior.showCardDetails();
             
-        
-        pawwarrior.attackEnemy(pawwarrior2);
-        System.out.println(pawwarrior2.getLife());
+        for (int i = 0; i < 9; i++) {
+            pawarior.attackEnemy(pawarior2);
+        }
+        pawarior2.showCardDetails();
     }
 }

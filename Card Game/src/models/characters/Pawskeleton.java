@@ -4,16 +4,17 @@ import models.PawCard;
 
 public class Pawskeleton extends PawCard{
 
-    public Pawskeleton(models.User user, String name) {
-        super(user, name);
+    public Pawskeleton(models.User user) {
+        super(user);
     }
-
-    {setCardDetails();}
 
     @Override
     public void setCardDetails() {
         setLife(350);
         setAttack(50);
+        setAgility(5);
+        setspeed(5);
+        setRarity(2);
         setElixirCost(1);
     }
 
@@ -21,5 +22,4 @@ public class Pawskeleton extends PawCard{
     public void usePower() {
         throw new UnsupportedOperationException("Unimplemented method 'usePower'");
     }
-    
 }

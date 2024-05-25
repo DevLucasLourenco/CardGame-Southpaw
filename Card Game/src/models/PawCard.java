@@ -11,13 +11,15 @@ public abstract class PawCard implements Card{
     private int life;
     private int elixirCost;
     private int rarity; // 1 to 5
+    
     private boolean alive;
     private boolean onTheField = false;
 
 
-    public PawCard(User user, String name){
+    public PawCard(User user){
         this.User = user;
-        this.name = name;
+        this.name = getClass().getSimpleName();
+        setCardDetails();
     }
 
     public int attackEnemy(PawCard enemyCard){
@@ -71,10 +73,6 @@ public abstract class PawCard implements Card{
         System.out.println(String.format("Rarity: %s", getRarity()));
         System.out.println(String.format("Elixir Cost: %s", getElixirCost()));
 
-
-    // private int rarity; // 1 to 5
-    // private boolean onTheField = false;
-
         System.out.println("\n");
     }
     
@@ -122,6 +120,7 @@ public abstract class PawCard implements Card{
 
     public void setLife(int d) {
         this.life = d;
+        dyingState();
     }
 
     @Override
