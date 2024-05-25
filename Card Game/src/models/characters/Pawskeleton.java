@@ -13,7 +13,6 @@ public class Pawskeleton extends PawCard{
         setLife(350);
         setAttack(50);
         setAgility(5);
-        setspeed(5);
         setRarity(2);
         setElixirCost(1);
     }

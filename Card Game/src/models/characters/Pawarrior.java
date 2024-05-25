@@ -16,7 +16,6 @@ public class Pawarrior extends PawCard {
         setLife(5000);
         setAttack(300);
         setAgility(2);
-        setspeed(1);
         setRarity(4);
         setElixirCost(4);
     }

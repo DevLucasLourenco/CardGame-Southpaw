@@ -7,7 +7,6 @@ public abstract class PawCard implements Card{
     private String name;
     private int attack;
     private int agility;
-    private int speed;
     private int life;
     private int elixirCost;
     private int rarity; // 1 to 5
@@ -45,6 +44,7 @@ public abstract class PawCard implements Card{
             if (getLife() <= 0) {
                 setAlive(false);
                 setOnTheField(false);
+                getUser().getPawUnderControl().remove(this);
                 System.out.println(String.format("%s is DEAD", getName()));
             }
         }
@@ -53,10 +53,11 @@ public abstract class PawCard implements Card{
     public void positionateCard(){
         if (!(isOnTheField())){
             if (!(getUser().getElixir() < getElixirCost())){
-                getUser().setElixir(getElixirCost() - getElixirCost());
+                getUser().setElixir(getUser().getElixir() - getElixirCost());
                 setOnTheField(true);
                 setAlive(true);
-                System.out.println(String.format("%s Positionated", getName()));
+                getUser().getPawUnderControl().add(this);
+                System.out.println(String.format("%s Positionated (%s)", getName(), getUser().getName()));
             } else{
                 System.out.println(getUser().getName()+" doesn't have enought Elixir to positionate "+ getName());
             }
@@ -69,7 +70,6 @@ public abstract class PawCard implements Card{
         System.out.println(String.format("HP: %s", getLife()));
         System.out.println(String.format("Attack: %s", getAttack()));
         System.out.println(String.format("Agility: %s", getAgility()));
-        System.out.println(String.format("Speed: %s", getAgility()));
         System.out.println(String.format("Rarity: %s", getRarity()));
         System.out.println(String.format("Elixir Cost: %s", getElixirCost()));
 
@@ -104,14 +104,6 @@ public abstract class PawCard implements Card{
 
     public void setAgility(int agility) {
         this.agility = agility;
-    }
-
-    public int getspeed() {
-        return speed;
-    }
-
-    public void setspeed(int speed) {
-        this.speed = speed;
     }
 
     public int getLife() {
