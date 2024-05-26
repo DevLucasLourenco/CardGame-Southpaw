@@ -7,8 +7,9 @@ import java.util.Map;
 import models.Card;
 import models.User;
 
-public class Party{
+public class PartyDetection{
 
+    private List<User> userList;
     private Map<User, List<Card>> partyPerUser;
     
     
@@ -16,18 +17,20 @@ public class Party{
         partyDeal partyLead = new partyDeal(user1, user2);
         partyLead.mappingCards();
         this.partyPerUser = partyLead.getParty();
+        this.userList = partyLead.getUsers();
     }
     
-
-    // Getters &  Setters
     public Map<User, List<Card>> getPartyPerUser() {
-        return partyPerUser;
+        return this.partyPerUser;
     }
+
+    public List<User> getUserList(){
+        return this.userList;
+    }
+    
 }
 
 class partyDeal {
-
-    // private Map<User, List<Card>> party = new
     public List<User> userList= new ArrayList<User>();
     public Map<User, List<Card>> partyMap = new HashMap<>();
 
@@ -43,12 +46,13 @@ class partyDeal {
         }
     }
         
-        public Map<User, List<Card>> getParty(){
-            return this.partyMap;
-            
-            
-        }
-        
+    public Map<User, List<Card>> getParty(){
+        return this.partyMap;
+    }
+
+    public List<User> getUsers(){
+        return this.userList;
+    }
 }
     
 

@@ -3,7 +3,8 @@ package service.simulated;
 import models.PawCard;
 import models.User;
 import models.characters.*;
-import service.event.Party;
+import service.event.PartyDetection;
+import service.event.shiftDeal;
 
 public class simulatedBattle1v1 {
     public static void main(String[] args) {
@@ -25,11 +26,14 @@ public class simulatedBattle1v1 {
 
         
         
-        Party party = new Party();
+        PartyDetection party = new PartyDetection();
         party.insertUsers(user1, user2);
-        System.out.println(party.getPartyPerUser());
         
+        shiftDeal shiftdeal = new shiftDeal(party.getPartyPerUser());
+        shiftdeal.putUserList(party.getUserList());
+        shiftdeal.iterThroughtBy("Speed");
 
+        
 
         
 
