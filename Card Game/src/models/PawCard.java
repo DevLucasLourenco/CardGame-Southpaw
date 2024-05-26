@@ -132,6 +132,7 @@ public abstract class PawCard implements Card{
         this.rarity = rarity;
     }
 
+    @Override
     public User getUser() {
         return User;
     }

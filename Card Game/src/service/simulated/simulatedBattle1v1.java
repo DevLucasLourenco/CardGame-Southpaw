@@ -2,9 +2,15 @@ package service.simulated;
 
 import models.PawCard;
 import models.User;
+
+import java.util.List;
+
+import models.Card;
 import models.characters.*;
 import service.event.PartyDetection;
+import service.event.eventDeal;
 import service.event.shiftDeal;
+import service.event.By;
 
 public class simulatedBattle1v1 {
     public static void main(String[] args) {
@@ -17,7 +23,7 @@ public class simulatedBattle1v1 {
         pawarior.positionateCard();
         // pawarior.showCardDetails();
 
-        PawCard pawarior11 = new Pawarrior(user1);
+        PawCard pawarior11 = new Pawskeleton(user1);
         pawarior11.positionateCard();
         
         PawCard pawarior2 = new Pawarrior(user2);
@@ -29,10 +35,21 @@ public class simulatedBattle1v1 {
         PartyDetection party = new PartyDetection();
         party.insertUsers(user1, user2);
         
-        shiftDeal shiftdeal = new shiftDeal(party.getPartyPerUser());
-        shiftdeal.putUserList(party.getUserList());
-        shiftdeal.iterThroughtBy("Speed");
+        shiftDeal shiftdeal = new shiftDeal(user1, user2);
+        List<Card> sequence = shiftdeal.iterThroughtBy(By.AGILITY);
 
+        System.out.println(sequence);
+        
+        for (Card card:sequence){
+            System.out.println(card.getUser().getName());
+        }
+
+        eventDeal event = new eventDeal("SouthPaw");
+        event.inicializationFirstEvent();
+        
+
+
+        
         
 
         

@@ -5,6 +5,7 @@ public interface Card {
     public String getName();
     public int getElixirCost();
     public User getUser();
+    public int getAgility();
     
     public abstract void setCardDetails();
     public abstract void showCardDetails();
