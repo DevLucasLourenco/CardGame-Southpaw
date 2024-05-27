@@ -7,6 +7,26 @@ public class User{
     private String name;
     private int elixir = 10;
     private List<Card> pawUnderControl = new ArrayList<>();
+
+    public String pawInfoText(){
+        List<String> txtlist = new ArrayList<>();
+        String txtTreat = "";
+
+        for (Card paw : this.pawUnderControl){
+            txtlist.add(paw.showCardDetails(false));
+        }
+
+        if (!(txtlist.isEmpty())){
+            txtTreat += "==========\n";
+            for (String txt : txtlist){
+                txtTreat += "|----------\n";
+                txtTreat += txt+"\n";
+                txtTreat += "|----------\n";
+            }
+            txtTreat += "==========\n";
+        }
+        return txtTreat;
+    }
     
     
     // Getters & Setters

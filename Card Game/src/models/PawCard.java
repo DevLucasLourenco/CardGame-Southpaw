@@ -65,15 +65,20 @@ public abstract class PawCard implements Card{
     }
 
     @Override
-    public void showCardDetails() {
-        System.out.println(String.format("=== %s - %s ===", User.getName(), getName()));
-        System.out.println(String.format("HP: %s", getLife()));
-        System.out.println(String.format("Attack: %s", getAttack()));
-        System.out.println(String.format("Agility: %s", getAgility()));
-        System.out.println(String.format("Rarity: %s", getRarity()));
-        System.out.println(String.format("Elixir Cost: %s", getElixirCost()));
+    public String showCardDetails(boolean print) {
+        String texto = String.format("|=== %s - %s ===\n", User.getName(), getName())+
+        String.format("|HP: %s\n", getLife())+
+        String.format("|Attack: %s\n", getAttack())+
+        String.format("|Agility: %s\n", getAgility())+
+        String.format("|Rarity: %s\n", getRarity())+
+        String.format("|Elixir Cost: %s", getElixirCost());
 
-        System.out.println("\n");
+        if (print){
+            System.out.println(texto);
+            System.out.println("\n");
+        }
+
+        return texto;
     }
     
     abstract public void usePower();
@@ -98,6 +103,7 @@ public abstract class PawCard implements Card{
         this.attack = attack;
     }
 
+    @Override
     public int getAgility() {
         return agility;
     }

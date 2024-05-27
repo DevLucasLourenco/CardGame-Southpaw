@@ -29,9 +29,12 @@ public class eventDeal {
     public void generalState(){
         if (!(this.users.isEmpty())){
             for (User user : this.users){
-                String texto = "|-----%s-----\n|%s - Elixir: %s\n|%s - Paws: %s\n";
+                String texto =String.format("|-----%s-----\n", user.getName())+
+                String.format("|%s - Elixir: %s\n", user.getName(), user.getElixir())+
+                String.format("|%s - Paws: \n%s\n", user.getName(), user.pawInfoText());
+                
     
-                System.out.println(String.format(texto, user.getName(),user.getName(), user.getElixir(), user.getName(), user.getPawUnderControl()));
+                System.out.println(String.format(texto));
                 // retornar aqui todo o estado da batalha, quanto de elixir os usuarios tem, hp de todos os monstros e tudo mais
             }
         }

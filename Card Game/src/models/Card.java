@@ -8,6 +8,6 @@ public interface Card {
     public int getAgility();
     
     public abstract void setCardDetails();
-    public abstract void showCardDetails();
+    public abstract String showCardDetails(boolean print);
 
 }
