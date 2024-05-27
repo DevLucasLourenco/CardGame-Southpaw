@@ -6,9 +6,8 @@ import java.util.List;
 public class User{
     private String name;
     private int elixir = 10;
-    private List<Card> pawUnderControl = new ArrayList<Card>();
+    private List<Card> pawUnderControl = new ArrayList<>();
     
-
     
     // Getters & Setters
     public String getName() {

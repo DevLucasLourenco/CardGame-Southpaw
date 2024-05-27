@@ -1,16 +1,14 @@
 package service.simulated;
 
+import java.util.List;
+import models.Card;
 import models.PawCard;
 import models.User;
-
-import java.util.List;
-
-import models.Card;
 import models.characters.*;
+import service.event.By;
 import service.event.PartyDetection;
 import service.event.eventDeal;
 import service.event.shiftDeal;
-import service.event.By;
 
 public class simulatedBattle1v1 {
     public static void main(String[] args) {
@@ -46,7 +44,8 @@ public class simulatedBattle1v1 {
 
         eventDeal event = new eventDeal("SouthPaw");
         event.inicializationFirstEvent();
-        
+        event.inputPlayers(user1, user2);
+        event.generalState();
 
 
         
