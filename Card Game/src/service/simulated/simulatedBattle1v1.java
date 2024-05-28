@@ -19,14 +19,14 @@ public class simulatedBattle1v1 {
 
         PawCard pawarior = new Pawarrior(user1);
         pawarior.positionateCard();
-        // pawarior.showCardDetails();
+        // pawarior.showCardDetails(true);
 
         PawCard pawarior11 = new Pawskeleton(user1);
         pawarior11.positionateCard();
         
         PawCard pawarior2 = new Pawarrior(user2);
         pawarior2.positionateCard();
-        // pawarior2.showCardDetails();
+        // pawarior2.showCardDetails(true);
 
         
         

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import models.Card;
 import models.User;
 
 public class eventDeal {
@@ -25,19 +26,43 @@ public class eventDeal {
         this.users.addAll(Arrays.asList(users));
     }
 
-    public void generalState(){
-        if (!(this.users.isEmpty())){
-            for (User user : this.users){
-                String texto =String.format("|-----%s-----\n", user.getName())+
-                String.format("|%s - Elixir: %s\n", user.getName(), user.getElixir())+
-                String.format("|%s - Paws: \n%s\n", user.getName(), user.pawInfoText());
-                
-    
-                System.out.println(String.format(texto));
-                // retornar aqui todo o estado da batalha, quanto de elixir os usuarios tem, hp de todos os monstros e tudo mais
+    public void generalState() {
+        if (!this.users.isEmpty()) {
+            StringBuilder table = new StringBuilder();
+            String header = String.format("| %-15s | %-7s | %-98s |\n", "User", "Elixir", "Paws");
+            String separator = "|-----------------|---------|----------------------------------------------------------------------------------------------------|\n";
+
+            table.append(separator);
+            table.append(header);
+            table.append(separator);
+
+            for (User user : this.users) {
+                List<Card> cards = user.getPawUnderControl();
+                if (cards.isEmpty()) {
+                    String userInfo = String.format("| %-15s | %-7d | %-100s |\n",
+                            user.getName(), user.getElixir(), "No paws controlled");
+                    table.append(userInfo);
+                } else {
+                    String userInfo = String.format("| %-15s | %-7d |", user.getName(), user.getElixir());
+                    table.append(userInfo);
+
+                    for (int i = 0; i < cards.size(); i++) {
+                        if (i > 0) {
+                            table.append(String.format("| %-15s | %-7s |", "", ""));
+                        }
+                        table.append(String.format(" %-98s |\n", cards.get(i).toString()));
+                    }
+                }
+
+                table.append(separator);
             }
+
+            System.out.println(table.toString());
+        } else {
+            System.out.println("No users available. Try to set them.");
         }
     }
+
 
     public void apresentation(){
         // apresentar os usuarios

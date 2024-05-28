@@ -10,4 +10,6 @@ public interface Card {
     public abstract void setCardDetails();
     public abstract String showCardDetails(boolean print);
 
+
+
 }

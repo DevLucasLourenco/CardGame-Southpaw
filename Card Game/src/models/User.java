@@ -9,23 +9,11 @@ public class User{
     private List<Card> pawUnderControl = new ArrayList<>();
 
     public String pawInfoText(){
-        List<String> txtlist = new ArrayList<>();
-        String txtTreat = "";
-
-        for (Card paw : this.pawUnderControl){
-            txtlist.add(paw.showCardDetails(false));
+        StringBuilder pawInfo = new StringBuilder();
+        for (Card card : this.pawUnderControl) {
+            pawInfo.append(card.toString()).append("\n");
         }
-
-        if (!(txtlist.isEmpty())){
-            txtTreat += "==========\n";
-            for (String txt : txtlist){
-                txtTreat += "|----------\n";
-                txtTreat += txt+"\n";
-                txtTreat += "|----------\n";
-            }
-            txtTreat += "==========\n";
-        }
-        return txtTreat;
+        return pawInfo.toString();
     }
     
     

@@ -66,7 +66,7 @@ public abstract class PawCard implements Card{
 
     @Override
     public String showCardDetails(boolean print) {
-        String texto = String.format("|=== %s - %s ===\n", User.getName(), getName())+
+        String texto = String.format("| %s s ===\n", User.getName(), getName())+
         String.format("|HP: %s\n", getLife())+
         String.format("|Attack: %s\n", getAttack())+
         String.format("|Agility: %s\n", getAgility())+
@@ -81,6 +81,14 @@ public abstract class PawCard implements Card{
         return texto;
     }
     
+    @Override
+    public String toString() {
+        return String.format(
+            "| %s |HP: %d|Attack: %d|Agility: %d|Rarity: %d|Elixir Cost: %d",
+            this.name, this.life, this.attack, this.agility, this.rarity, this.elixirCost
+        );
+    }
+
     abstract public void usePower();
 
 
