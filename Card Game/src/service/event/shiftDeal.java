@@ -1,6 +1,7 @@
 package service.event;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -9,17 +10,15 @@ import models.Card;
 import models.User;
 
 public class shiftDeal {
-    private List<User> userList = new ArrayList<User>();
+    private final List<User> userList = new ArrayList<>();
     
     
-    public shiftDeal(User user1, User user2) {
-        this.userList.add(user1);
-        this.userList.add(user2);
+    public shiftDeal(User... users) {
+        this.userList.addAll(Arrays.asList(users));
     }
 
     public List<Card> iterThroughtBy(By option){
-        List<Card> result = new ArrayList<>();
-        result = cardManagement(option);
+        List<Card> result = cardManagement(option);
         return result;
     }
 

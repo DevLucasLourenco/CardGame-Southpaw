@@ -16,7 +16,6 @@ public class eventDeal {
         this.GameName = GameName;
     }
 
-
     public void inicializationFirstEvent(){
         System.out.println(String.format("===== %s =====", this.GameName));
         System.out.println(String.format("Good Luck!", this.GameName));
