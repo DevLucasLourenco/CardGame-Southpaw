@@ -5,6 +5,7 @@ public abstract class PawCard implements Card{
 
     private User User;
     private String name;
+    private String nickName;
     private int attack;
     private int agility;
     private int life;
@@ -16,8 +17,17 @@ public abstract class PawCard implements Card{
 
 
     public PawCard(User user){
+        // constructor without nickname
         this.User = user;
         this.name = getClass().getSimpleName();
+        setCardDetails();
+    }
+    
+    public PawCard(User user, String nickname){
+        // constructor with nickname
+        this.User = user;
+        this.name = getClass().getSimpleName();
+        this.nickName = nickname;
         setCardDetails();
     }
 
@@ -84,8 +94,8 @@ public abstract class PawCard implements Card{
     @Override
     public String toString() {
         return String.format(
-            "| %s |HP: %d|Attack: %d|Agility: %d|Rarity: %d|Elixir Cost: %d",
-            this.name, this.life, this.attack, this.agility, this.rarity, this.elixirCost
+            "| %-15s | HP: %-6d| Attack: %-4d| Agility: %-2d| Rarity: %-2d| Elixir Cost: %-2d",
+            getName(), getLife(), getAttack(), getAgility(), getRarity(), getElixirCost()
         );
     }
 
@@ -95,6 +105,9 @@ public abstract class PawCard implements Card{
     // Getters & Setters
     @Override
     public String getName() {
+        if (getNickName() != null){
+            return this.nickName;
+        }
         return name;
     }
 
@@ -169,5 +182,13 @@ public abstract class PawCard implements Card{
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 }

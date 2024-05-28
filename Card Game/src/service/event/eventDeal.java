@@ -11,7 +11,7 @@ public class eventDeal {
     protected String GameName;
     protected List<User> users = new ArrayList<>();;
 
-    Scanner scanner = new Scanner(System.in);
+    protected  Scanner scanner = new Scanner(System.in);
 
     public eventDeal(String GameName){
         this.GameName = GameName;
@@ -26,7 +26,7 @@ public class eventDeal {
         this.users.addAll(Arrays.asList(users));
     }
 
-    public void generalState() {
+    public void generalBattleState() {
         if (!this.users.isEmpty()) {
             StringBuilder table = new StringBuilder();
             String header = String.format("| %-15s | %-7s | %-98s |\n", "User", "Elixir", "Paws");
@@ -64,7 +64,7 @@ public class eventDeal {
     }
 
 
-    public void apresentation(){
+    public void userApresentation(){
         // apresentar os usuarios
     }
 }

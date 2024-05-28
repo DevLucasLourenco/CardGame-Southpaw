@@ -16,8 +16,9 @@ public class simulatedBattle1v1 {
         User user1 = new User("Lucas");
         User user2 = new User("Fulano");
 
-
+    
         PawCard pawarior = new Pawarrior(user1);
+        pawarior.setNickName("Boladão 10000");
         pawarior.positionateCard();
         // pawarior.getCardDetails(true);
 
@@ -45,13 +46,9 @@ public class simulatedBattle1v1 {
         eventDeal event = new eventDeal("SouthPaw");
         event.inicializationFirstEvent();
         event.inputPlayers(user1, user2);
-        event.generalState();
-
-
-        
+        event.generalBattleState();
         
 
-        
 
         // pawarior2.showCardDetails();
         
