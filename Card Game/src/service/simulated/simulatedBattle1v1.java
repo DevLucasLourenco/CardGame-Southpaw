@@ -19,14 +19,14 @@ public class simulatedBattle1v1 {
 
         PawCard pawarior = new Pawarrior(user1);
         pawarior.positionateCard();
-        // pawarior.showCardDetails(true);
+        // pawarior.getCardDetails(true);
 
         PawCard pawarior11 = new Pawskeleton(user1);
         pawarior11.positionateCard();
         
         PawCard pawarior2 = new Pawarrior(user2);
         pawarior2.positionateCard();
-        // pawarior2.showCardDetails(true);
+        pawarior2.getCardDetails(true);
 
         
         
@@ -36,7 +36,7 @@ public class simulatedBattle1v1 {
         shiftDeal shiftdeal = new shiftDeal(user1, user2);
         List<Card> sequence = shiftdeal.iterThroughtBy(By.AGILITY);
 
-        System.out.println(sequence);
+        // System.out.println(sequence);
         
         for (Card card:sequence){
             System.out.println(card.getUser().getName());
