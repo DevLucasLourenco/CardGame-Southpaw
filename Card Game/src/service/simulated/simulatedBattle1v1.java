@@ -27,7 +27,7 @@ public class simulatedBattle1v1 {
         
         PawCard pawarior2 = new Pawarrior(user2);
         pawarior2.positionateCard();
-        pawarior2.getCardDetails(true);
+        // pawarior2.getCardDetails(true);
 
         
         
@@ -40,7 +40,7 @@ public class simulatedBattle1v1 {
         // System.out.println(sequence);
         
         for (Card card:sequence){
-            System.out.println(card.getUser().getName());
+            System.out.println(card.getUser().getName() + " " + card.getName());
         }
 
         eventDeal event = new eventDeal("SouthPaw");

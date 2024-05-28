@@ -76,7 +76,7 @@ public abstract class PawCard implements Card{
 
     @Override
     public String getCardDetails(boolean print) {
-        String texto = String.format("| === %s - %s===\n", User.getName(), getName())+
+        String texto = String.format("| === %s - %s=== \n", User.getName(), getName())+
         String.format("|HP: %s\n", getLife())+
         String.format("|Attack: %s\n", getAttack())+
         String.format("|Agility: %s\n", getAgility())+
