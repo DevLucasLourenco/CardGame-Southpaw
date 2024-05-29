@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import models.Card;
 import models.User;
 
@@ -30,7 +29,7 @@ public class shiftDeal {
                 resultList.add(currentCard);     
             }
         }
-
+        
         Collections.sort(resultList, new Comparator<Card>() {
             @Override
             public int compare(Card c1, Card c2) {

@@ -9,6 +9,7 @@ public abstract class PawCard implements Card{
     private int attack;
     private int agility;
     private int life;
+    private int maxLife;
     private int elixirCost;
     private int rarity; // 1 to 5
     
@@ -27,7 +28,11 @@ public abstract class PawCard implements Card{
         // constructor with nickname
         this.User = user;
         this.name = getClass().getSimpleName();
-        this.nickName = nickname;
+        if (nickname.length()<= 15){
+            this.nickName = nickname;
+        } else{
+            System.out.println("The lenght of the nickname must be below to 15 characters");
+        }
         setCardDetails();
     }
 
@@ -77,7 +82,7 @@ public abstract class PawCard implements Card{
     @Override
     public String getCardDetails(boolean print) {
         String texto = String.format("| === %s - %s=== \n", User.getName(), getName())+
-        String.format("|HP: %s\n", getLife())+
+        String.format("|HP: %s/%s\n",getMaxLife() , getLife())+
         String.format("|Attack: %s\n", getAttack())+
         String.format("|Agility: %s\n", getAgility())+
         String.format("|Rarity: %s\n", getRarity())+
@@ -94,8 +99,8 @@ public abstract class PawCard implements Card{
     @Override
     public String toString() {
         return String.format(
-            "| %-15s | HP: %-6d| Attack: %-4d| Agility: %-2d| Rarity: %-2d| Elixir Cost: %-2d",
-            getName(), getLife(), getAttack(), getAgility(), getRarity(), getElixirCost()
+            "| %-15s | HP: %6d/%-6d| Attack: %-4d| Agility: %-2d| Rarity: %-2d| Elixir Cost: %-2d",
+            getName(), getMaxLife(), getLife(), getAttack(), getAgility(), getRarity(), getElixirCost()
         );
     }
 
@@ -139,6 +144,9 @@ public abstract class PawCard implements Card{
 
     public void setLife(int d) {
         this.life = d;
+        if (getMaxLife() == 0){
+            this.maxLife = this.life;
+        }
         dyingState();
     }
 
@@ -190,5 +198,9 @@ public abstract class PawCard implements Card{
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public int getMaxLife() {
+        return maxLife;
     }
 }

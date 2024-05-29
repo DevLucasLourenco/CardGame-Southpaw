@@ -16,30 +16,27 @@ public class simulatedBattle1v1 {
         User user1 = new User("Lucas");
         User user2 = new User("Fulano");
 
-    
         PawCard pawarior = new Pawarrior(user1);
-        pawarior.setNickName("Boladão 10000");
+        pawarior.setNickName("Real Knight OG");
         pawarior.positionateCard();
         // pawarior.getCardDetails(true);
 
         PawCard pawarior11 = new Pawskeleton(user1);
         pawarior11.positionateCard();
-        
+
         PawCard pawarior2 = new Pawarrior(user2);
         pawarior2.positionateCard();
         // pawarior2.getCardDetails(true);
 
-        
-        
         PartyDetection party = new PartyDetection();
         party.insertUsers(user1, user2);
-        
+
         shiftDeal shiftdeal = new shiftDeal(user1, user2);
         List<Card> sequence = shiftdeal.iterThroughtBy(By.AGILITY);
 
         // System.out.println(sequence);
-        
-        for (Card card:sequence){
+
+        for (Card card : sequence) {
             System.out.println(card.getUser().getName() + " " + card.getName());
         }
 
@@ -48,18 +45,17 @@ public class simulatedBattle1v1 {
         event.inputPlayers(user1, user2);
         event.generalBattleState();
         
-
-
         // pawarior2.showCardDetails();
         
         // pawarior.usePower();
         // pawarior.showCardDetails();
         
         // for (int i = 0; i < 9; i++) {
-        //     pawarior.attackEnemy(pawarior2);
+        pawarior.attackEnemy(pawarior2);
+        event.generalBattleState();
         // }
         // pawarior2.showCardDetails();
 
-        // System.out.println(user2.getPawUnderControl());  
+        // System.out.println(user2.getPawUnderControl());
     }
 }
