@@ -37,23 +37,16 @@ public class simulatedBattle1v1 {
         for (Card card : sequence) {
             System.out.println(card.getUser().getName() + " " + card.getName());
         }
-
+        
         eventDeal event = new eventDeal("SouthPaw");
         event.inicializationFirstEvent();
         event.inputPlayers(user1, user2);
         event.generalBattleState();
         
-        // pawarior2.showCardDetails();
-        
-        // pawarior.usePower();
-        // pawarior.showCardDetails();
-        
-        // for (int i = 0; i < 9; i++) {
         pawarior.attackEnemy(pawarior2);
         event.generalBattleState();
-        // }
-        // pawarior2.showCardDetails();
 
-        // System.out.println(user2.getPawUnderControl());
+        
+        System.out.println("-"+shiftdeal.calculateActionOrder(sequence));
     }
 }

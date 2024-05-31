@@ -48,6 +48,23 @@ public class shiftDeal {
         return resultList;
     }
 
+    public List<Card> calculateActionOrder(List<Card> sortedCards) {
+        List<Card> actionOrder = new ArrayList<>();
+        int counter = 0;
+        // 
+        for (Card card : sortedCards){
+            int agilityPoint_CurrentCard = card.getAgility();
+
+            if (agilityPoint_CurrentCard>=sortedCards.get(counter+1).getAgility()){
+                
+            }
+
+
+            counter++;
+        }
+        return actionOrder;
+    }
+
 
     // Getter
     public List<User> getUserList() {
