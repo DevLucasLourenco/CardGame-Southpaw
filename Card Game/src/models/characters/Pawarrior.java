@@ -13,7 +13,7 @@ public class Pawarrior extends PawCard {
     
     @Override
     public void setCardDetails(){
-        setLife(5000);
+        setLife(3000);
         setAttack(300);
         setAgility(2);
         setRarity(4);

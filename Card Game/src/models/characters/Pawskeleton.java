@@ -10,8 +10,8 @@ public class Pawskeleton extends PawCard{
 
     @Override
     public void setCardDetails() {
-        setLife(350);
-        setAttack(50);
+        setLife(600);
+        setAttack(100);
         setAgility(5);
         setRarity(2);
         setElixirCost(1);

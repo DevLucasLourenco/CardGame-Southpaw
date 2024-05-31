@@ -48,6 +48,7 @@ public class shiftDeal {
         return resultList;
     }
 
+
     // Getter
     public List<User> getUserList() {
         return userList;

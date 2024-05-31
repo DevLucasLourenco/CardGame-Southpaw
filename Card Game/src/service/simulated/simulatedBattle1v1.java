@@ -27,15 +27,13 @@ public class simulatedBattle1v1 {
         PawCard pawarior2 = new Pawarrior(user2);
         pawarior2.positionateCard();
         // pawarior2.getCardDetails(true);
-
+        
         PartyDetection party = new PartyDetection();
         party.insertUsers(user1, user2);
 
         shiftDeal shiftdeal = new shiftDeal(user1, user2);
         List<Card> sequence = shiftdeal.iterThroughtBy(By.AGILITY);
-
-        // System.out.println(sequence);
-
+        
         for (Card card : sequence) {
             System.out.println(card.getUser().getName() + " " + card.getName());
         }
