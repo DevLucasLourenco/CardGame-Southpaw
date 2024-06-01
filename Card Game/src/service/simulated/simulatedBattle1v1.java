@@ -14,19 +14,23 @@ public class simulatedBattle1v1 {
     public static void main(String[] args) {
 
         User user1 = new User("Lucas");
-        User user2 = new User("Fulano");
-
+        
         PawCard pawarior = new Pawarrior(user1);
         pawarior.setNickName("Real Knight OG");
         pawarior.positionateCard();
-        // pawarior.getCardDetails(true);
-
-        PawCard pawarior11 = new Pawskeleton(user1);
-        pawarior11.positionateCard();
-
+        
+        PawCard pawskeleton = new Pawskeleton(user1);
+        pawskeleton.positionateCard();
+        //----------
+        
+        
+        User user2 = new User("Fulano");
         PawCard pawarior2 = new Pawarrior(user2);
         pawarior2.positionateCard();
-        // pawarior2.getCardDetails(true);
+
+        PawCard pawskeleton2 = new Pawskeleton(user2);
+        pawskeleton2.positionateCard();
+        //----------
         
         PartyDetection party = new PartyDetection();
         party.insertUsers(user1, user2);
@@ -46,7 +50,10 @@ public class simulatedBattle1v1 {
         pawarior.attackEnemy(pawarior2);
         event.generalBattleState();
 
-        
-        System.out.println("-"+shiftdeal.calculateActionOrder(sequence));
+        var sortedcard = shiftdeal.battleOrder(sequence);
+
+        for (var card: sortedcard) {
+            System.out.println(card.getName()+"-"+card.getUser().getName());
+        }
     }
 }

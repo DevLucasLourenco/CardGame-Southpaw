@@ -48,15 +48,20 @@ public class shiftDeal {
         return resultList;
     }
 
-    public List<Card> calculateActionOrder(List<Card> sortedCards) {
+    public List<Card> battleOrder(List<Card> sortedCards) {
         List<Card> actionOrder = new ArrayList<>();
         int counter = 0;
         // 
         for (Card card : sortedCards){
-            int agilityPoint_CurrentCard = card.getAgility();
-
-            if (agilityPoint_CurrentCard>=sortedCards.get(counter+1).getAgility()){
-                
+            actionOrder.add(card);
+            int agilityPoint = card.getAgility();
+            
+            for (int j = 1; j < (sortedCards.size() - counter); j++){
+                int currentCard_temp_agility = sortedCards.get(counter+j).getAgility();
+                if (agilityPoint>sortedCards.get(counter+j).getAgility()){
+                    actionOrder.add(card);
+                    agilityPoint -= currentCard_temp_agility;
+                }
             }
 
 

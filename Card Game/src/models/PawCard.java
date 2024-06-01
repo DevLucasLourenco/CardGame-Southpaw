@@ -60,7 +60,7 @@ public abstract class PawCard implements Card{
                 setAlive(false);
                 setOnTheField(false);
                 getUser().getPawUnderControl().remove(this);
-                System.out.println(String.format("%s is DEAD", getName()));
+                System.out.println(String.format("%s is DEAD (%s)", getName(), getUser().getName()));
             }
         }
     }
