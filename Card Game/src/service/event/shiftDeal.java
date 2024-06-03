@@ -53,10 +53,6 @@ public class shiftDeal {
         List<Card> actionOrder = new ArrayList<>();
         int minNumber = getMinNumber(sortedCards);
 
-
-        System.out.println(minNumber);
-        
-
         for (Card card : sortedCards){
             // CC -> Current Card
             int agilityPointCC = card.getAgility();
