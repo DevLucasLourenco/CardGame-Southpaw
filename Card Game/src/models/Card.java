@@ -9,6 +9,7 @@ public interface Card {
     public int getAgility();
     
     // methods
+    public abstract String exportInfo();
     public abstract void setCardDetails();
     public abstract String getCardDetails(boolean print);
 }

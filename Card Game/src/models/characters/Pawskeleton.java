@@ -14,7 +14,7 @@ public class Pawskeleton extends PawCard{
         setAttack(100);
         setAgility(5);
         setRarity(2);
-        setElixirCost(1);
+        setElixirCost(2);
     }
 
     @Override

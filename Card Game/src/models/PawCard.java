@@ -95,12 +95,12 @@ public abstract class PawCard implements Card{
 
         return texto;
     }
-    
+
     @Override
-    public String toString() {
+    public String exportInfo() {
         return String.format(
-            "| %-15s | HP: %6d/%-6d| Attack: %-4d| Agility: %-2d| Rarity: %-2d| Elixir Cost: %-2d",
-            getName(), getMaxLife(), getLife(), getAttack(), getAgility(), getRarity(), getElixirCost()
+            "| %-15s | HP: %6d/%-6d| Attack: %-4d| Agility: %-2d| Rarity: %-2d| Elixir Cost: %-2d| User: %s",
+            getName(), getMaxLife(), getLife(), getAttack(), getAgility(), getRarity(), getElixirCost(), getUser().getName()
         );
     }
 

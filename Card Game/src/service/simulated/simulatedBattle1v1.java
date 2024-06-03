@@ -50,9 +50,9 @@ public class simulatedBattle1v1 {
         pawarior.attackEnemy(pawarior2);
         event.generalBattleState();
 
-        var sortedcard = shiftdeal.battleOrder(sequence);
+        List<Card> sortedcard = shiftdeal.actionOrdering(sequence);
 
-        for (var card: sortedcard) {
+        for (Card card: sortedcard) {
             System.out.println(card.getName()+"-"+card.getUser().getName());
         }
     }

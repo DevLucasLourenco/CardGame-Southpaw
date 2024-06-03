@@ -50,7 +50,7 @@ public class eventDeal {
                         if (i > 0) {
                             table.append(String.format("| %-15s | %-7s |", "", ""));
                         }
-                        table.append(String.format(" %-98s |\n", cards.get(i).toString()));
+                        table.append(String.format(" %-98s |\n", cards.get(i).exportInfo()));
                     }
                 }
 
@@ -62,7 +62,6 @@ public class eventDeal {
             System.out.println("No users available. Try to set them.");
         }
     }
-
 
     public void userApresentation(){
         // apresentar os usuarios

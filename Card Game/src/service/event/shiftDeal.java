@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
 import models.Card;
 import models.User;
 
@@ -48,28 +49,54 @@ public class shiftDeal {
         return resultList;
     }
 
-    public List<Card> battleOrder(List<Card> sortedCards) {
+    public List<Card> actionOrdering(List<Card> sortedCards) {
         List<Card> actionOrder = new ArrayList<>();
-        int counter = 0;
-        // 
+        int minNumber = getMinNumber(sortedCards);
+
+
+        System.out.println(minNumber);
+        
+
         for (Card card : sortedCards){
-            actionOrder.add(card);
-            int agilityPoint = card.getAgility();
-            
-            for (int j = 1; j < (sortedCards.size() - counter); j++){
-                int currentCard_temp_agility = sortedCards.get(counter+j).getAgility();
-                if (agilityPoint>sortedCards.get(counter+j).getAgility()){
+            // CC -> Current Card
+            int agilityPointCC = card.getAgility();
+            boolean enought = false;
+
+            while (true){
+                if (agilityPointCC>minNumber){
+                    enought = true;
                     actionOrder.add(card);
-                    agilityPoint -= currentCard_temp_agility;
+                    agilityPointCC -= minNumber;
+
+                } else if (agilityPointCC==minNumber) {
+                    actionOrder.add(card);
+                    break;
+                    
+                } else if (agilityPointCC<minNumber){
+                    if (enought){
+                        actionOrder.add(card);
+                    }
+                    break;
                 }
             }
-
-
-            counter++;
         }
         return actionOrder;
     }
 
+    private Integer getMinNumber(List<Card> listSorted){
+        int minNumber = 0;
+        int auxInt;
+        
+        for (Card card : listSorted){
+            if (minNumber==0){
+                auxInt = card.getAgility();
+                minNumber = auxInt;
+            } else if (card.getAgility() < minNumber){
+                minNumber = card.getAgility();
+            }
+        }
+        return minNumber;
+    }
 
     // Getter
     public List<User> getUserList() {
