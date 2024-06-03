@@ -2,6 +2,7 @@ package service.event;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -30,7 +31,7 @@ public class shiftDeal {
                 resultList.add(currentCard);     
             }
         }
-        
+        Collections.shuffle(resultList);
         Collections.sort(resultList, new Comparator<Card>() {
             @Override
             public int compare(Card c1, Card c2) {
@@ -76,7 +77,19 @@ public class shiftDeal {
                 }
             }
         }
+        // return shuffleActionOrder(actionOrder);
         return actionOrder;
+    }
+
+    private List<Card> shuffleActionOrder(List<Card> actionOrder){
+        // lista de 1 de velocidade -> 
+        // lista de 2 de velocidade -> 
+        // lista de 3 de velocidade -> 
+        // lista de 4 de velocidade -> 
+        // lista de 5 de velocidade -> 
+
+        // extend em uma lista após shuffled na ordem do mais rapido ao mais lento (5 > 1)
+        
     }
 
     private Integer getMinNumber(List<Card> listSorted){
