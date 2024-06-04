@@ -1,6 +1,6 @@
 package models.spells;
 
-import models.Card;
+import models.contracts.Card;
 
 abstract public class spellCard implements Card{
     

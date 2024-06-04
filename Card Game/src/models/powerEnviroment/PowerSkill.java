@@ -1,6 +1,6 @@
 package models.powerEnviroment;
 
-import models.PawCard;
+import models.characters.pawbase.PawCard;
 import models.users.User;
 
 public abstract class PowerSkill {

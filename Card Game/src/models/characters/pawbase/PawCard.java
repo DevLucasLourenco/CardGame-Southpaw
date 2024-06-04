@@ -1,5 +1,6 @@
-package models;
+package models.characters.pawbase;
 
+import models.contracts.Card;
 import models.users.User;
 
 public abstract class PawCard implements Card{
@@ -29,7 +30,7 @@ public abstract class PawCard implements Card{
         // constructor with nickname
         this.User = user;
         this.name = getClass().getSimpleName();
-        if (nickname.length()<= 15){
+        if (nickname.length() <= 15){
             this.nickName = nickname;
         } else{
             System.out.println("The lenght of the nickname must be below to 15 characters");
@@ -104,8 +105,6 @@ public abstract class PawCard implements Card{
             getName(), getMaxLife(), getLife(), getAttack(), getAgility(), getRarity(), getElixirCost(), getUser().getName()
         );
     }
-
-    abstract public void usePower();
 
 
     // Getters & Setters

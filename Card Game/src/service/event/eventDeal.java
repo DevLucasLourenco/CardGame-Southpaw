@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import models.Card;
+
+import models.contracts.Card;
 import models.users.User;
 
 public class eventDeal {

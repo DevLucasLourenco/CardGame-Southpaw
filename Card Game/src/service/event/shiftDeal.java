@@ -7,7 +7,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import models.Card;
+
+import models.contracts.Card;
 import models.users.User;
 
 public class shiftDeal {
@@ -28,7 +29,7 @@ public class shiftDeal {
         
         for (User currentUser: this.userList){
             for (Card currentCard : currentUser.getPawUnderControl()){
-                resultList.add(currentCard);     
+                resultList.add(currentCard);
             }
         }
         

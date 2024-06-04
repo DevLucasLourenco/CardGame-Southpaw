@@ -1,11 +1,12 @@
 package models.characters;
 
-import models.PawCard;
+import models.characters.pawbase.PawCard;
+import models.contracts.hasPower;
 import models.powerEnviroment.*;
 import models.users.User;
 
 
-public class Pawarrior extends PawCard {
+public class Pawarrior extends PawCard implements hasPower{
 
     public Pawarrior(User user){
         super(user);

@@ -1,4 +1,4 @@
-package models;
+package models.contracts;
 
 import models.users.User;
 

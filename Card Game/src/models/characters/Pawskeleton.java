@@ -1,8 +1,9 @@
 package models.characters;
 
-import models.PawCard;
+import models.characters.pawbase.PawCard;
+import models.contracts.hasPower;
 
-public class Pawskeleton extends PawCard{
+public class Pawskeleton extends PawCard implements hasPower{
 
     public Pawskeleton(models.users.User user) {
         super(user);
