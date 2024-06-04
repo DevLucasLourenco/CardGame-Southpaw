@@ -3,9 +3,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import models.Card;
-import models.User;
+import models.users.User;
 
 public class PartyDetection{
 
@@ -31,7 +30,7 @@ public class PartyDetection{
 }
 
 class partyDeal {
-    public List<User> userList= new ArrayList<User>();
+    public List<User> userList= new ArrayList<>();
     public Map<User, List<Card>> partyMap = new HashMap<>();
 
     public partyDeal(User user1, User user2) {

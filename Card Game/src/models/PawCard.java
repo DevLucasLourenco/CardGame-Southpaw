@@ -1,5 +1,6 @@
 package models;
 
+import models.users.User;
 
 public abstract class PawCard implements Card{
 

@@ -1,7 +1,8 @@
-package models;
+package models.users;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.Card;
 
 public class User{
     private String name;

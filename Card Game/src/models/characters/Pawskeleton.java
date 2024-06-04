@@ -4,7 +4,7 @@ import models.PawCard;
 
 public class Pawskeleton extends PawCard{
 
-    public Pawskeleton(models.User user) {
+    public Pawskeleton(models.users.User user) {
         super(user);
     }
 

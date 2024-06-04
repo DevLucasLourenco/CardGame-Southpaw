@@ -1,5 +1,7 @@
 package models;
 
+import models.users.User;
+
 public interface Card {
     // attributes
     public int getAttack();

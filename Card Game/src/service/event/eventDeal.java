@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import models.Card;
-import models.User;
+import models.users.User;
 
 public class eventDeal {
     protected String GameName;

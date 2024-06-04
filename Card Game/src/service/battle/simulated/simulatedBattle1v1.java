@@ -1,10 +1,10 @@
-package service.simulated;
+package service.battle.simulated;
 
 import java.util.List;
 import models.Card;
 import models.PawCard;
-import models.User;
 import models.characters.*;
+import models.users.User;
 import service.event.By;
 import service.event.PartyDetection;
 import service.event.eventDeal;
@@ -50,7 +50,7 @@ public class simulatedBattle1v1 {
         pawarior.attackEnemy(pawarior2);
         event.generalBattleState();
 
-        List<Card> sortedcard = shiftdeal.actionOrdering(sequence);
+        List<Card> sortedcard = shiftdeal.actionOrderingByAgility(sequence);
 
         for (Card card: sortedcard) {
             System.out.println(card.getName()+"-"+card.getUser().getName());

@@ -1,7 +1,7 @@
 package models.powerEnviroment;
 
 import models.PawCard;
-import models.User;
+import models.users.User;
 
 public class tanker extends PowerSkill{
 

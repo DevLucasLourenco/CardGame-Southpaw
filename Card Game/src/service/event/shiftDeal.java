@@ -2,13 +2,13 @@ package service.event;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import models.Card;
-import models.User;
+import models.users.User;
 
 public class shiftDeal {
     private final List<User> userList = new ArrayList<>();
@@ -31,7 +31,7 @@ public class shiftDeal {
                 resultList.add(currentCard);     
             }
         }
-        Collections.shuffle(resultList);
+        
         Collections.sort(resultList, new Comparator<Card>() {
             @Override
             public int compare(Card c1, Card c2) {
@@ -50,7 +50,7 @@ public class shiftDeal {
         return resultList;
     }
 
-    public List<Card> actionOrdering(List<Card> sortedCards) {
+    public List<Card> actionOrderingByAgility(List<Card> sortedCards) {
         List<Card> actionOrder = new ArrayList<>();
         int minNumber = getMinNumber(sortedCards);
 
@@ -77,19 +77,29 @@ public class shiftDeal {
                 }
             }
         }
-        // return shuffleActionOrder(actionOrder);
-        return actionOrder;
+        return shuffleActionOrder(actionOrder);
     }
 
     private List<Card> shuffleActionOrder(List<Card> actionOrder){
-        // lista de 1 de velocidade -> 
-        // lista de 2 de velocidade -> 
-        // lista de 3 de velocidade -> 
-        // lista de 4 de velocidade -> 
-        // lista de 5 de velocidade -> 
+        List<Card> shuffledActionOrder = new ArrayList<>();
+        Map<Integer, List<Card>> agilityGroups = new HashMap<>();
 
-        // extend em uma lista após shuffled na ordem do mais rapido ao mais lento (5 > 1)
-        
+        for (Card card : actionOrder){
+            // CC -> Current Card
+            int agilityCC = card.getAgility();
+            agilityGroups.computeIfAbsent(agilityCC, k -> new ArrayList<>()).add(card);
+        }
+
+        List<Integer> agilityLevels = new ArrayList<>(agilityGroups.keySet());
+        agilityLevels.sort(Collections.reverseOrder());
+
+        for (int agility : agilityLevels){
+            List<Card> cards = agilityGroups.get(agility);
+            Collections.shuffle(cards);
+            shuffledActionOrder.addAll(cards);
+        }
+
+        return shuffledActionOrder;
     }
 
     private Integer getMinNumber(List<Card> listSorted){
