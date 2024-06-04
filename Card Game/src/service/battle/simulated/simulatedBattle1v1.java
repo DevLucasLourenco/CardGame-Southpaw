@@ -1,7 +1,6 @@
 package service.battle.simulated;
 
 import java.util.List;
-
 import models.characters.*;
 import models.characters.pawbase.PawCard;
 import models.contracts.Card;
@@ -37,8 +36,8 @@ public class simulatedBattle1v1 {
         shiftDeal shiftdeal = new shiftDeal(user1, user2);
         List<Card> sequence = shiftdeal.iterThroughtBy(By.AGILITY);
         
-        eventDeal event = new eventDeal("SouthPaw");
-        event.inicializationFirstEvent();
+        eventDeal event = new eventDeal();
+        
         event.inputPlayers(user1, user2);
         event.generalBattleState();
         
