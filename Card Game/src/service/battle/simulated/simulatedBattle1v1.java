@@ -55,5 +55,7 @@ public class simulatedBattle1v1 {
         for (Card card: sortedcard) {
             System.out.println(card.getName()+"-"+card.getUser().getName());
         }
+
+        
     }
 }

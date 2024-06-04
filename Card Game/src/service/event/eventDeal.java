@@ -62,7 +62,7 @@ public class eventDeal {
             System.out.println("No users available. Try to set them.");
         }
     }
-
+    
     public void userApresentation(){
         // apresentar os usuarios
     }

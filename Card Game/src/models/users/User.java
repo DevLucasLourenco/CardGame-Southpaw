@@ -8,15 +8,8 @@ public class User{
     private String name;
     private int elixir = 10;
     private List<Card> pawUnderControl = new ArrayList<>();
+    private Statistic statistic = new Statistic(this);
 
-    public String pawInfoText(){
-        StringBuilder pawInfo = new StringBuilder();
-        for (Card card : this.pawUnderControl) {
-            pawInfo.append(card.toString()).append("\n");
-        }
-        return pawInfo.toString();
-    }
-    
     
     // Getters & Setters
     public String getName() {
@@ -45,5 +38,13 @@ public class User{
     
     public List<Card> getPawUnderControl() {
         return pawUnderControl;
+    }
+
+    public Statistic getStatistic() {
+        return statistic;
+    }
+
+    public void setStatistic(Statistic statistic) {
+        this.statistic = statistic;
     }
 }

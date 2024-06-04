@@ -1,7 +1,17 @@
 package models.users;
 
 
-public class statistic {
-    
+public class Statistic {
+    protected User user;
+    protected int pawsDefeated;
+
+    public Statistic(User user){
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Statistic []";
+    }
     
 }
