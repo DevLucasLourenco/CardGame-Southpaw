@@ -3,14 +3,13 @@ package service.event;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import models.contracts.Card;
 import models.users.User;
 
 public class eventDeal {
     protected String GameName = "SouthPaw";
     protected List<User> users = new ArrayList<>();;
-    protected  Scanner scanner = new Scanner(System.in);
+    
 
     {inicializationFirstEvent();}
 
@@ -60,28 +59,12 @@ public class eventDeal {
         }
     }
     
-    public void userApresentation(){
-        // apresentar os usuarios
-    }
-
     public void showRules(){
 
     }
 
-    public List<String> receiveNames(){
-        List<String> namesList = new ArrayList<>();
+}
 
-        System.out.println(String.format("Bem vindo ao %s!\n", this.GameName));
+class battleByScript {
 
-        System.out.println("Informe o nome do 1º jogador: ");
-        String name1 = this.scanner.nextLine();
-        
-        System.out.println("Informe o nome do 2º jogador: ");
-        String name2 = this.scanner.nextLine();
-
-        namesList.add(name1);
-        namesList.add(name2);
-
-        return namesList;
-    }
 }
