@@ -45,6 +45,7 @@ public class simulatedBattle1v1 {
         event.generalBattleState();
 
         List<Card> sortedcard = shiftdeal.actionOrderingByAgility(sequence);
+        System.out.println(sortedcard);
 
     }
 }

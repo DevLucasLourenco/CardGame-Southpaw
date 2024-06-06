@@ -15,6 +15,7 @@ public class User{
     //Quando chegar a 0, acaba o player perder 
     //(acontece também se o próprio usuário fazer o elixir chegar a 0)
 
+
     
     // Getters & Setters
     public String getName() {
