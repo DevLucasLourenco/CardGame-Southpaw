@@ -43,7 +43,7 @@ public class simulatedBattle1v1 {
         List<Card> sequence = shiftdeal.iterThroughtBy(By.AGILITY);
         //========================================
         
-        // Event Deal
+        // Event deal
         //========================================
         eventDeal event = new eventDeal();
         

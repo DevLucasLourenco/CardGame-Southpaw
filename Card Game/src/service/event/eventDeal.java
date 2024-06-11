@@ -70,17 +70,16 @@ public class eventDeal {
     public void ChooseMenu(){
         String choice = "";
 
-        ActionByChooseMenu action = new ActionByChooseMenu(choice);
+        ActionBy action = new ActionBy(choice);
         action.run();
     }
-
-
 }
 
-class ActionByChooseMenu {
-    private String ChoosedOption;
+class ActionBy {
+    // Used when an option at Choose Menu have been selected
+    protected String ChoosedOption;
 
-    public ActionByChooseMenu(String ChoosedOption){
+    public ActionBy(String ChoosedOption){
         this.ChoosedOption = ChoosedOption;
 
     }
