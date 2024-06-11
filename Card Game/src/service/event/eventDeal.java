@@ -18,7 +18,7 @@ public class eventDeal {
         System.out.println(String.format("Good Luck!", this.GameName));
     }
 
-    public void inputPlayers(User... users){
+    public void insertUsers(User... users){
         this.users.addAll(Arrays.asList(users));
     }
 
@@ -63,8 +63,30 @@ public class eventDeal {
 
     }
 
+    public void FirstMenu(){
+
+    }
+
+    public void ChooseMenu(){
+        String choice = "";
+
+        ActionByChooseMenu action = new ActionByChooseMenu(choice);
+        action.run();
+    }
+
+
 }
 
-class battleByScript {
+class ActionByChooseMenu {
+    private String ChoosedOption;
 
+    public ActionByChooseMenu(String ChoosedOption){
+        this.ChoosedOption = ChoosedOption;
+
+    }
+
+    public void run(){
+        
+    }
 }
+
