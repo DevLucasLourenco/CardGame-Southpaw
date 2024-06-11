@@ -38,6 +38,9 @@ public class battle {
         // Invoke
         //========================================
         event.FirstMenu();
+
+
+        //dps
         event.ChooseMenu();
         //========================================
 
