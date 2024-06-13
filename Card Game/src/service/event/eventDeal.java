@@ -9,16 +9,17 @@ import models.users.User;
 public class eventDeal {
     protected String GameName = "SouthPaw";
     protected List<User> users = new ArrayList<>();;
-    
 
-    {inicializationFirstEvent();}
+    {
+        inicializationFirstEvent();
+    }
 
-    public void inicializationFirstEvent(){
+    public void inicializationFirstEvent() {
         System.out.println(String.format("===== %s =====", this.GameName));
         System.out.println(String.format("Good Luck!", this.GameName));
     }
 
-    public void insertUsers(User... users){
+    public void insertUsers(User... users) {
         this.users.addAll(Arrays.asList(users));
     }
 
@@ -58,16 +59,26 @@ public class eventDeal {
             System.out.println("No users available. Try to set them.");
         }
     }
-    
-    public void showRules(){
+
+    public void showRules() {
 
     }
 
-    public void FirstMenu(){
-
+    public void FirstMenu() {
+        StringBuilder table = new StringBuilder();
+        table.append("------------------------------");
+        // String txt = """
+        // _______________________________________________
+        // | |
+        // | |
+        // | |
+        // | |
+        // | |
+        // |______________________________________________|
+        // """;
     }
 
-    public void ChooseMenu(){
+    public void ChooseMenu() {
         String choice = "";
 
         ActionBy action = new ActionBy(choice);
@@ -79,13 +90,12 @@ class ActionBy {
     // Used when an option at Choose Menu have been selected
     protected String ChoosedOption;
 
-    public ActionBy(String ChoosedOption){
+    public ActionBy(String ChoosedOption) {
         this.ChoosedOption = ChoosedOption;
 
     }
 
-    public void run(){
-        
+    public void run() {
+
     }
 }
-

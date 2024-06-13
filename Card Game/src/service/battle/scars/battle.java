@@ -35,7 +35,7 @@ public class battle {
         event.insertUsers(user1, user2);
         //========================================
 
-        // Invoke
+        // Menu
         //========================================
         event.FirstMenu();
 
