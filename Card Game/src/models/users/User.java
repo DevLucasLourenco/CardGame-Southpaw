@@ -9,7 +9,6 @@ public class User{
     private int elixir = 10;
     private List<Card> pawUnderControl = new ArrayList<>();
     private Statistic statistic = new Statistic(this);
-    // private PawsAvailableToUse[] = [];
     // Quando o monstro inimgo ataca diretamente o player, é descontado 
     //exatamente o valor do elixir do monstro do elixir do jogador. 
     //Quando chegar a 0, acaba o player perder 
