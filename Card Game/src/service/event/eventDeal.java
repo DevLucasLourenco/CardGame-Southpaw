@@ -2,11 +2,18 @@ package service.event;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import models.characters.Pawarrior;
+import models.characters.Pawclown;
+import models.characters.Pawskeleton;
 import models.contracts.Card;
 import models.users.User;
 
 public class eventDeal {
+    Scanner scanner = new Scanner(System.in);
     protected String GameName = "SouthPaw";
     protected List<User> users = new ArrayList<>();;
 
@@ -65,17 +72,39 @@ public class eventDeal {
     }
 
     public void FirstMenu() {
-        StringBuilder table = new StringBuilder();
-        table.append("------------------------------");
-        // String txt = """
-        // _______________________________________________
-        // | |
-        // | |
-        // | |
-        // | |
-        // | |
-        // |______________________________________________|
-        // """;
+        for (User user : this.users){
+            String proceed;
+            do { 
+                String selectionChoice;
+                StringBuilder table = new StringBuilder();
+                table.append("------------------------------");
+
+                String textInstructions = String.format("%s, you must select one of the options below to procede", user.getName());
+                table.append(textInstructions);
+
+                String textChoice = "A) Select a Paw to invoke\nB) Check General States";
+                table.append(textChoice);
+        
+                table.append("------------------------------\n");
+                System.out.println(table);
+
+                selectionChoice = scanner.nextLine().toUpperCase();
+                switch (selectionChoice) {
+                    case "A":
+                        ChooseMonsterToInvoke(user);
+                        break;
+                    case "B":
+                        break;
+                    default:
+                        break;
+                }
+
+                // fazer aqui algo c essa escolha
+
+                System.out.println("\nDo you want to do something else?");
+                proceed = scanner.nextLine().toUpperCase();
+            } while (!proceed.equals("N"));
+        }
     }
 
     public void ChooseMenu() {
@@ -84,10 +113,23 @@ public class eventDeal {
         ActionBy action = new ActionBy(choice);
         action.run();
     }
+
+    public void ChooseMonsterToInvoke(User user){
+        Map<String, Card>PawsLookUpTable = new HashMap<>();
+        PawsLookUpTable.put("A", new Pawarrior(user));
+        PawsLookUpTable.put("B", new Pawskeleton(user));
+        PawsLookUpTable.put("C", new Pawclown(user));
+
+
+        System.out.println("Which Paw do you want to invoke?\nA) Pawarrior\nB) Pawskeleton\nC) Pawclown");
+        String res = scanner.nextLine().toUpperCase();
+
+        PawsLookUpTable.get(res);
+    }
 }
 
 class ActionBy {
-    // Used when an option at Choose Menu have been selected
+    // Used when an option at Choose Menu has been selected
     protected String ChoosedOption;
 
     public ActionBy(String ChoosedOption) {
