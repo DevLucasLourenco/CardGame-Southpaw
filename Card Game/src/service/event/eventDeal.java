@@ -2,13 +2,9 @@ package service.event;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import models.characters.Pawarrior;
-import models.characters.Pawclown;
-import models.characters.Pawskeleton;
+import models.characters.pawbase.managePaws;
 import models.contracts.Card;
 import models.users.User;
 
@@ -115,16 +111,16 @@ public class eventDeal {
     }
 
     public void ChooseMonsterToInvoke(User user){
-        Map<String, Card>PawsLookUpTable = new HashMap<>();
-        PawsLookUpTable.put("A", new Pawarrior(user));
-        PawsLookUpTable.put("B", new Pawskeleton(user));
-        PawsLookUpTable.put("C", new Pawclown(user));
+        managePaws managepaws = new managePaws();
+        var availablePaws = managepaws.getPawsAvailableForUsage();
 
+        System.out.println("Which Paw do you want to invoke?");
+        for (var card : availablePaws){
+            int count = 1;
+            System.out.println(String.format("%d) %s", count, card.getName()));
+        }
 
-        System.out.println("Which Paw do you want to invoke?\nA) Pawarrior\nB) Pawskeleton\nC) Pawclown");
         String res = scanner.nextLine().toUpperCase();
-
-        PawsLookUpTable.get(res);
     }
 }
 
