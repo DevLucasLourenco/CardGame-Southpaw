@@ -73,15 +73,15 @@ public class eventDeal {
             do { 
                 String selectionChoice;
                 StringBuilder table = new StringBuilder();
-                table.append("------------------------------");
+                table.append("------------------------------\n");
 
                 String textInstructions = String.format("%s, you must select one of the options below to procede", user.getName());
                 table.append(textInstructions);
 
-                String textChoice = "A) Select a Paw to invoke\nB) Check General States";
+                String textChoice = "\nA) Select a Paw to invoke\nB) Check General States";
                 table.append(textChoice);
         
-                table.append("------------------------------\n");
+                table.append("\n------------------------------\n");
                 System.out.println(table);
 
                 selectionChoice = scanner.nextLine().toUpperCase();
@@ -117,7 +117,8 @@ public class eventDeal {
         System.out.println("Which Paw do you want to invoke?");
         for (var card : availablePaws){
             int count = 1;
-            System.out.println(String.format("%d) %s", count, card.getName()));
+            System.out.println(String.format("%d) %s", count, card));
+            count ++;
         }
 
         String res = scanner.nextLine().toUpperCase();
