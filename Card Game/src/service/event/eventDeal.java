@@ -2,8 +2,11 @@ package service.event;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import models.characters.pawbase.PawCard;
 import models.characters.pawbase.managePaws;
 import models.contracts.Card;
 import models.users.User;
@@ -39,7 +42,7 @@ public class eventDeal {
             for (User user : this.users) {
                 List<Card> cards = user.getPawUnderControl();
                 if (cards.isEmpty()) {
-                    String userInfo = String.format("| %-15s | %-7d | %-100s |\n",
+                    String userInfo = String.format("| %-15s | %-7d | %-98s |\n",
                             user.getName(), user.getElixir(), "No paws controlled");
                     table.append(userInfo);
                 } else {
@@ -90,6 +93,7 @@ public class eventDeal {
                         ChooseMonsterToInvoke(user);
                         break;
                     case "B":
+                        generalBattleState();
                         break;
                     default:
                         break;
@@ -97,7 +101,7 @@ public class eventDeal {
 
                 // fazer aqui algo c essa escolha
 
-                System.out.println("\nDo you want to do something else?");
+                System.out.println("\nDo you want to do something else? (Y/N)");
                 proceed = scanner.nextLine().toUpperCase();
             } while (!proceed.equals("N"));
         }
@@ -111,17 +115,24 @@ public class eventDeal {
     }
 
     public void ChooseMonsterToInvoke(User user){
-        managePaws managepaws = new managePaws();
-        var availablePaws = managepaws.getPawsAvailableForUsage();
+        int count = 1;
+        Map<Integer, Class<?extends PawCard>> assimilationOrderedPaws = new HashMap<>();
 
+        managePaws managepaws = new managePaws();
+        List<Class<? extends PawCard>> availablePaws = managepaws.getPawsAvailableForUsage();
+        
         System.out.println("Which Paw do you want to invoke?");
-        for (var card : availablePaws){
-            int count = 1;
-            System.out.println(String.format("%d) %s", count, card));
+        for (Class<? extends PawCard> card : availablePaws){
+            System.out.println(String.format("%d) %s", count, card.getName()));
+            
+            assimilationOrderedPaws.put(count, card);
             count ++;
         }
+        System.out.println(assimilationOrderedPaws);
+        Integer res = scanner.nextInt();
 
-        String res = scanner.nextLine().toUpperCase();
+        System.out.println(assimilationOrderedPaws.get(res).getName());
+
     }
 }
 

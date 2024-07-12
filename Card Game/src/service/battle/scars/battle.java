@@ -39,7 +39,6 @@ public class battle {
         //========================================
         event.FirstMenu();
 
-
         //dps
         event.ChooseMenu();
         //========================================
