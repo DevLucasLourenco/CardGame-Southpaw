@@ -99,7 +99,7 @@ public class eventDeal {
                         break;
                 }
 
-                // fazer aqui algo c essa escolha
+                // fazer aqui algo c essa escolh
 
                 System.out.println("\nDo you want to do something else? (Y/N)");
                 proceed = scanner.nextLine().toUpperCase();

@@ -1,6 +1,6 @@
-package models.PowerEnviroment;
+package models.powerEnviroment;
 
-import models.Card;
+import models.contracts.Card;;
 
 public class Power {
 

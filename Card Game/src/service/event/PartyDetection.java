@@ -26,7 +26,6 @@ public class PartyDetection{
     public List<User> getUserList(){
         return this.userList;
     }
-    
 }
 
 class partyDeal {

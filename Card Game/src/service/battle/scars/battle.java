@@ -43,5 +43,8 @@ public class battle {
         event.ChooseMenu();
         // ========================================
 
+
+
+        scanner.close();
     }
 }
