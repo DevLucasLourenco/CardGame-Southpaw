@@ -1,5 +1,7 @@
 package service.battle.scars;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 import models.users.User;
 import service.event.PartyDetection;
@@ -9,6 +11,7 @@ public class battle {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        List<User> userListage = new ArrayList<>();
 
         // Receive Names
         // ========================================
@@ -35,12 +38,18 @@ public class battle {
         event.insertUsers(user1, user2);
         // ========================================
 
-        // Menu
+        // First Menu
         // ========================================
         event.FirstMenu();
 
-        // dps
-        event.ChooseMenu();
+        // Looping Until End
+        do{
+            
+            for (User user : userListage){
+                boolean proceed = event.ChooseMenu(user);
+            }
+
+        } while (!true);
         // ========================================
 
 

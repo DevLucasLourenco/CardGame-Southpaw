@@ -14,7 +14,7 @@ import models.users.User;
 public class eventDeal {
     Scanner scanner = new Scanner(System.in);
     protected String GameName = "SouthPaw";
-    protected List<User> users = new ArrayList<>();;
+    protected List<User> users = new ArrayList<>();
 
     {
         inicializationFirstEvent();
@@ -90,7 +90,8 @@ public class eventDeal {
                 selectionChoice = scanner.nextLine().toUpperCase();
                 switch (selectionChoice) {
                     case "A":
-                        ChooseMonsterToInvoke(user);
+                        PawCard paw = ChooseMonsterToInvoke(user);
+                        paw.positionateCard();
                         break;
                     case "B":
                         generalBattleState();
@@ -99,22 +100,15 @@ public class eventDeal {
                         break;
                 }
 
-                // fazer aqui algo c essa escolh
-
                 System.out.println("\nDo you want to do something else? (Y/N)");
                 proceed = scanner.nextLine().toUpperCase();
+                
             } while (!proceed.equals("N"));
         }
     }
 
-    public void ChooseMenu() {
-        String choice = "";
 
-        ActionBy action = new ActionBy(choice);
-        action.run();
-    }
-
-    public void ChooseMonsterToInvoke(User user){
+    public PawCard ChooseMonsterToInvoke(User user){
         int count = 1;
         Map<Integer, Class<?extends PawCard>> assimilationOrderedPaws = new HashMap<>();
 
@@ -131,8 +125,28 @@ public class eventDeal {
         System.out.println(assimilationOrderedPaws);
         Integer res = scanner.nextInt();
 
-        System.out.println(assimilationOrderedPaws.get(res).getName());
+        try{
+            Class<? extends PawCard> chosenClass = assimilationOrderedPaws.get(res);
+            PawCard cardReturn = chosenClass.getDeclaredConstructor(User.class).newInstance(user);
+    
+            return cardReturn;
 
+        } catch (Exception e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public boolean ChooseMenu(User user){
+        String choice = "";
+
+        ActionBy action = new ActionBy(choice);
+        action.run();
+
+
+        
+        return true;
     }
 }
 
