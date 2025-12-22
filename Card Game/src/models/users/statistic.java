@@ -1,13 +1,13 @@
 package models.users;
 
 
-public class Statistic {
+public class statistic {
     protected User user;
     protected int pawsDefeated;
     protected int totalDamageInflicted;
     
 
-    public Statistic(User user){
+    public statistic(User user){
         this.user = user;
     }
 

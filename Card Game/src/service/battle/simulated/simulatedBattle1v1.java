@@ -54,5 +54,6 @@ public class simulatedBattle1v1 {
         System.out.println(sortedcard);
         //========================================
 
+        
     }
 }

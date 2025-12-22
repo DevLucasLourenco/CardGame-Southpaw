@@ -1,4 +1,4 @@
-package service.battle.scars;
+package service.battle.against;
 
 import java.util.List;
 import java.util.ArrayList;

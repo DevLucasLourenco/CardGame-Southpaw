@@ -8,7 +8,7 @@ public class User{
     private String name;
     private int elixir = 10;
     private List<Card> pawUnderControl = new ArrayList<>();
-    private Statistic statistic = new Statistic(this);
+    private statistic statistic = new statistic(this);
     // Quando o monstro inimgo ataca diretamente o player, é descontado 
     //exatamente o valor do elixir do monstro do elixir do jogador. 
     //Quando chegar a 0, acaba o player perder 
@@ -45,11 +45,11 @@ public class User{
         return pawUnderControl;
     }
 
-    public Statistic getStatistic() {
+    public statistic getStatistic() {
         return statistic;
     }
 
-    public void setStatistic(Statistic statistic) {
+    public void setStatistic(statistic statistic) {
         this.statistic = statistic;
     }
 }
