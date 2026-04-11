@@ -3,9 +3,9 @@ package models.powerEnviroment;
 import models.characters.pawbase.PawCard;
 import models.users.User;
 
-public class tanker extends PowerSkill{
+public class Tanker extends PowerSkill{
 
-    public tanker(User user, PawCard card, int elixirCost) {
+    public Tanker(User user, PawCard card, int elixirCost) {
         super(user, card, elixirCost);
     }
 
@@ -13,6 +13,7 @@ public class tanker extends PowerSkill{
     void powerRule() {
         int HPactual = getCard().getLife();
         int HPincreased = (int) (HPactual * 1.2);
+        getCard().setMaxLife(HPincreased);
         getCard().setLife(HPincreased);
     }
 }

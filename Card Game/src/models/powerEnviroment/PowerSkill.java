@@ -16,12 +16,17 @@ public abstract class PowerSkill {
 
     abstract void powerRule();
 
-    
+
     public void Use(){
+        if (getUser().getElixir() < getElixirCost()) {
+            System.out.println(getUser().getName() + " doesn't have enough Elixir to use this power.");
+            return;
+        }
+        getUser().setElixir(getUser().getElixir() - getElixirCost());
         powerRule();
     }
 
-    
+
     // Getters & Setters
     public int getElixirCost() {
         return elixirCost;
@@ -37,4 +42,4 @@ public abstract class PowerSkill {
         return user;
     }
 
-} 
+}

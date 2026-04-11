@@ -1,9 +1,9 @@
 package models.characters;
 
 import models.characters.pawbase.PawCard;
-import models.contracts.hasPower;
+import models.contracts.HasPower;
 
-public class Pawskeleton extends PawCard implements hasPower{
+public class Pawskeleton extends PawCard implements HasPower{
 
     public Pawskeleton(models.users.User user) {
         super(user);
@@ -20,6 +20,6 @@ public class Pawskeleton extends PawCard implements hasPower{
 
     @Override
     public void usePower() {
-        throw new UnsupportedOperationException("Unimplemented method 'usePower'");
+        // TODO: implement Pawskeleton's unique power
     }
 }

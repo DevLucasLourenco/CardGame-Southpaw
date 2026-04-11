@@ -7,8 +7,8 @@ import models.contracts.Card;
 import models.users.User;
 import service.event.By;
 import service.event.PartyDetection;
-import service.event.eventDeal;
-import service.event.shiftDeal;
+import service.event.EventDeal;
+import service.event.ShiftDeal;
 
 public class simulatedBattle1v1 {
     public static void main(String[] args) {
@@ -19,17 +19,17 @@ public class simulatedBattle1v1 {
         PawCard pawarior = new Pawarrior(user1);
         pawarior.setNickName("Real Knight OG");
         pawarior.positionateCard();
-        
+
         PawCard pawskeleton = new Pawskeleton(user1);
         pawskeleton.positionateCard();
         //========================================
-        
+
         // User 2
         //========================================
         User user2 = new User("Fulano");
         PawCard pawarior2 = new Pawarrior(user2);
         pawarior2.positionateCard();
-        
+
         PawCard pawskeleton2 = new Pawskeleton(user2);
         pawskeleton2.positionateCard();
         //========================================
@@ -38,22 +38,22 @@ public class simulatedBattle1v1 {
         //========================================
         PartyDetection party = new PartyDetection();
         party.insertUsers(user1, user2);
-        
-        shiftDeal shiftdeal = new shiftDeal(user1, user2);
+
+        ShiftDeal shiftdeal = new ShiftDeal(user1, user2);
         List<Card> sequence = shiftdeal.iterThroughtBy(By.AGILITY);
         //========================================
-        
+
         // Event deal
         //========================================
-        eventDeal event = new eventDeal();
-        
+        EventDeal event = new EventDeal();
+
         event.insertUsers(user1, user2);
         event.generalBattleState();
-        
+
         List<Card> sortedcard = shiftdeal.actionOrderingByAgility(sequence);
         System.out.println(sortedcard);
         //========================================
 
-        
+
     }
 }

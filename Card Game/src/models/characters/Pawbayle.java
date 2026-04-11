@@ -1,22 +1,30 @@
 package models.characters;
 
 import models.characters.pawbase.PawCard;
-import models.contracts.hasPower;
+import models.contracts.HasPower;
+import models.powerEnviroment.PowerSkill;
+import models.powerEnviroment.Tanker;
+import models.users.User;
 
-public class Pawbayle extends PawCard implements hasPower{
+/** Balanced fighter: can spend Elixir to boost its own HP. */
+public class Pawbayle extends PawCard implements HasPower {
 
-    public Pawbayle(models.users.User user){
+    public Pawbayle(User user) {
         super(user);
     }
 
     @Override
-    public void usePower() {
-        throw new UnsupportedOperationException("Unimplemented method 'usePower'");
+    public void setCardDetails() {
+        setLife(1800);
+        setAttack(200);
+        setAgility(3);
+        setRarity(3);
+        setElixirCost(3);
     }
 
     @Override
-    public void setCardDetails() {
-        throw new UnsupportedOperationException("Unimplemented method 'setCardDetails'");
+    public void usePower() {
+        PowerSkill power = new Tanker(getUser(), this, getElixirCost());
+        power.Use();
     }
-
 }

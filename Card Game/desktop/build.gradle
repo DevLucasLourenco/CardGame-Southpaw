@@ -1,0 +1,34 @@
+apply plugin: 'java-library'
+apply plugin: 'application'
+
+mainClassName = 'desktop.DesktopLauncher'
+
+sourceSets.main.java.srcDirs = ['src/main/java']
+
+dependencies {
+    implementation project(':core')
+    api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+}
+
+// Run from assets/ so LibGDX can find resource files
+run {
+    workingDir = rootProject.file('assets')
+}
+
+// Fat JAR with assets bundled inside
+jar {
+    archiveFileName.set("${appName}-${version}.jar")
+    dependsOn configurations.runtimeClasspath
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+    from(rootProject.file('assets'))
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}

@@ -1,0 +1,11 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "javac": true,
+    "Get-Command": true,
+    "ForEach-Object": true,
+    "scoop": true,
+    "winget": true,
+    "choco": true,
+    ".\\gradlew.bat": true
+  }
+}

@@ -1,0 +1,10 @@
+allprojects {
+    version = '1.0'
+    ext {
+        appName    = 'southpaw'
+        gdxVersion = '1.12.1'
+    }
+    repositories {
+        mavenCentral()
+    }
+}

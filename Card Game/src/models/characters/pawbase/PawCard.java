@@ -9,12 +9,13 @@ public abstract class PawCard implements Card{
     private String name;
     private String nickName;
     private int attack;
+    private int baseAttack; // original attack value — prevents rage stacking
     private int agility;
     private int life;
     private int maxLife;
     private int elixirCost;
     private int rarity; // 1 to 5
-    
+
     private boolean alive;
     private boolean onTheField = false;
 
@@ -25,7 +26,7 @@ public abstract class PawCard implements Card{
         this.name = getClass().getSimpleName();
         setCardDetails();
     }
-    
+
     public PawCard(User user, String nickname){
         // constructor with nickname
         this.User = user;
@@ -46,16 +47,24 @@ public abstract class PawCard implements Card{
         return 0;
     }
 
+    /** Attack directly the opponent player (no paws on field). Returns damage dealt. */
+    public int attackPlayer(User opponent) {
+        if (isOnTheField()) {
+            opponent.takeDamage(this.attack);
+            return this.attack;
+        }
+        return 0;
+    }
+
     public int receiveDamage(Card enemyCard){
         if (isOnTheField()){
             int newLifeState = getLife() - enemyCard.getAttack();
-            setLife(newLifeState);
-            this.dyingState();
+            setLife(newLifeState); // dyingState() is called internally inside setLife()
             return newLifeState;
         }
         return 0;
     }
-    
+
     private void dyingState(){
         if (isOnTheField()){
             if (getLife() <= 0) {
@@ -66,18 +75,32 @@ public abstract class PawCard implements Card{
             }
         }
     }
-    
+
     public void positionateCard(){
         if (!(isOnTheField())){
+            if (!getUser().hasRoom()) {
+                System.out.println("Field is full! Max 5 monsters per player.");
+                return;
+            }
             if (!(getUser().getElixir() < getElixirCost())){
                 getUser().setElixir(getUser().getElixir() - getElixirCost());
                 setOnTheField(true);
                 setAlive(true);
                 getUser().getPawUnderControl().add(this);
-                System.out.println(String.format("%s Positionated (%s)", getName(), getUser().getName()));
             } else{
-                System.out.println(getUser().getName()+" doesn't have enought Elixir to positionate "+ getName());
+                System.out.println(getUser().getName()+" doesn't have enough Elixir to position "+ getName()
+                        + " (needs " + getElixirCost() + ", has " + getUser().getElixir() + ")");
             }
+        }
+    }
+
+    /** Positions the card on the field WITHOUT spending Elixir. Used by doppelgangers power. */
+    public void forcePositionateCard(){
+        if (!isOnTheField()){
+            setOnTheField(true);
+            setAlive(true);
+            getUser().getPawUnderControl().add(this);
+            System.out.println(String.format("%s (Clone) appeared on the field! (%s)", getName(), getUser().getName()));
         }
     }
 
@@ -126,7 +149,14 @@ public abstract class PawCard implements Card{
     }
 
     public void setAttack(int attack) {
+        if (this.baseAttack == 0) {
+            this.baseAttack = attack; // capture original on first call
+        }
         this.attack = attack;
+    }
+
+    public int getBaseAttack() {
+        return baseAttack == 0 ? attack : baseAttack;
     }
 
     @Override
@@ -202,5 +232,9 @@ public abstract class PawCard implements Card{
 
     public int getMaxLife() {
         return maxLife;
+    }
+
+    public void setMaxLife(int maxLife) {
+        this.maxLife = maxLife;
     }
 }

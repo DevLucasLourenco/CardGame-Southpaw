@@ -1,6 +1,6 @@
 package models.contracts;
 
 
-public interface hasPower {
+public interface HasPower {
     abstract public void usePower();
 }

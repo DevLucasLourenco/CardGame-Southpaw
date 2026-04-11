@@ -1,17 +1,17 @@
 package models.characters;
 
 import models.characters.pawbase.PawCard;
-import models.contracts.hasPower;
+import models.contracts.HasPower;
 import models.powerEnviroment.*;
 import models.users.User;
 
 
-public class Pawarrior extends PawCard implements hasPower{
+public class Pawarrior extends PawCard implements HasPower{
 
     public Pawarrior(User user){
         super(user);
     }
-    
+
     @Override
     public void setCardDetails(){
         setLife(3000);
@@ -23,7 +23,7 @@ public class Pawarrior extends PawCard implements hasPower{
 
     @Override
     public void usePower() {
-        PowerSkill power = new rage(getUser(), this, getElixirCost());
+        PowerSkill power = new Rage(getUser(), this, getElixirCost());
         power.Use();
     }
 }

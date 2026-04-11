@@ -2,6 +2,6 @@ package models.spells;
 
 import models.contracts.Card;
 
-abstract public class spellCard implements Card{
-    
+abstract public class SpellCard implements Card{
+
 }
