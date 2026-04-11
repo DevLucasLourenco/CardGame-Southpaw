@@ -323,8 +323,8 @@ battle.main()
 
 ### Pré-requisitos
 
-| Requisito | Versão testada | Link                                          |
-| --------- | -------------- | --------------------------------------------- |
+| Requisito | Versão testada | Link                                              |
+| --------- | -------------- | ------------------------------------------------- |
 | Java JDK  | 21.0.9 LTS     | https://adoptium.net/temurin/releases/?version=21 |
 
 O Gradle Wrapper já está incluso no repositório — não é preciso instalar o Gradle separadamente.
@@ -353,12 +353,12 @@ new Lwjgl3Application(new SouthPawGame(), config);
 
 ### Configurações da janela (DesktopLauncher.java)
 
-| Parâmetro  | Valor          |
-| ---------- | -------------- |
-| Resolução  | 1600 × 950 px  |
-| FPS alvo   | 60             |
-| VSync      | Ativado        |
-| Título     | SouthPaw       |
+| Parâmetro | Valor         |
+| --------- | ------------- |
+| Resolução | 1600 × 950 px |
+| FPS alvo  | 60            |
+| VSync     | Ativado       |
+| Título    | SouthPaw      |
 
 ### Estrutura de assets
 
